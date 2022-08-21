@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/yashmasani/project/mernNew/bevy-game/target/debug/build/typenum-fbf5ce14ab1734ab/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/yashmasani/project/mernNew/bevy-game/target/debug/build/typenum-fbf5ce14ab1734ab/out/op.rs

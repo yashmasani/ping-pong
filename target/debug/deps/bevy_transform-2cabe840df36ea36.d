@@ -1,0 +1,10 @@
+/Users/yashmasani/project/mernNew/bevy-game/target/debug/deps/bevy_transform-2cabe840df36ea36.rmeta: /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/lib.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/mod.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/global_transform.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/transform.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/systems.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/../README.md
+
+/Users/yashmasani/project/mernNew/bevy-game/target/debug/deps/bevy_transform-2cabe840df36ea36.d: /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/lib.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/mod.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/global_transform.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/transform.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/systems.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/../README.md
+
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/lib.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/mod.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/global_transform.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/components/transform.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/systems.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_transform-0.8.0/src/../README.md:

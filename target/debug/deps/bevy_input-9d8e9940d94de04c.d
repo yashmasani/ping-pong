@@ -1,0 +1,11 @@
+/Users/yashmasani/project/mernNew/bevy-game/target/debug/deps/bevy_input-9d8e9940d94de04c.rmeta: /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/lib.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/axis.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/gamepad.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/input.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/keyboard.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/mouse.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/touch.rs
+
+/Users/yashmasani/project/mernNew/bevy-game/target/debug/deps/bevy_input-9d8e9940d94de04c.d: /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/lib.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/axis.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/gamepad.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/input.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/keyboard.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/mouse.rs /Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/touch.rs
+
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/lib.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/axis.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/gamepad.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/input.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/keyboard.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/mouse.rs:
+/Users/yashmasani/.cargo/registry/src/github.com-1ecc6299db9ec823/bevy_input-0.8.0/src/touch.rs:
