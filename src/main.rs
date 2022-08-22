@@ -4,6 +4,10 @@ mod ball;
 mod player_one;
 mod direction;
 
+use ball::Ball;
+use direction::Direction;
+use player_one::PlayerOne;
+
 pub struct HelloPlugin;
 
 const MAX : f32 = 250.0;
@@ -19,7 +23,7 @@ fn setup (mut commands: Commands, mut meshes: ResMut<Assets<Mesh>>, mut material
             ..default() },
         transform: Transform::from_translation(Vec3::new(-245.0, 00.0, 0.0)),
         ..default()
-    }).insert(player_one::PlayerOne);
+    }).insert(PlayerOne);
     commands.spawn_bundle(SpriteBundle {
         sprite: Sprite { color: Color::Rgba { red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00 }, 
             custom_size: Some(Vec2::new(30.0, 100.0)),
@@ -31,7 +35,7 @@ fn setup (mut commands: Commands, mut meshes: ResMut<Assets<Mesh>>, mut material
         mesh: meshes.add(shape::Circle::new(20.).into()).into(),
         material: materials.add(ColorMaterial::from(Color::BLACK)),
         ..default()
-    }).insert(ball::Ball).insert(direction::Direction {
+    }).insert(Ball).insert(Direction {
         x: -1.0,
         y: -1.0,
     });
@@ -69,7 +73,7 @@ fn main() {
         .add_plugin(HelloPlugin)
         .add_system(player_one::player_one_move)
         .add_system(player_two_move)
-        .add_system(ball::ball_move)
-//         .add_system(ball::ball_collide)
+        .add_system(direction::ball_move)
+        .add_system(direction::ball_collide)
         .run();
 }

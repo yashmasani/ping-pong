@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
-#[derive(Component)]
+#[derive(Component,Clone, Copy, PartialEq, Eq)]
 pub struct PlayerOne;
 
 const MAX : f32 = 250.0;
