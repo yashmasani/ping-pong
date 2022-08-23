@@ -54,6 +54,19 @@ fn player_two_move (mut keyboard_input: Res<Input<KeyCode>> , mut player_positio
     }
 }
 
+pub fn ball_collide (
+        player_position: Query<&Transform, With<PlayerOne>>,
+        mut dir_position: Query<(&Transform, &mut Direction), Without<PlayerOne>>,
+    ) {
+    if let Some(transform_player) = player_position.iter().next() {
+        if let Some((trans_dir, mut dir)) = dir_position.iter_mut().next() {
+            if transform_player.translation.x == trans_dir.translation.x {
+                dir.x = dir.x.abs();
+            }
+        }
+    }
+}
+
 impl Plugin for HelloPlugin {
     fn build(&self, app: &mut App) {
         println!("{}", "App is running");
@@ -74,6 +87,6 @@ fn main() {
         .add_system(player_one::player_one_move)
         .add_system(player_two_move)
         .add_system(direction::ball_move)
-        .add_system(direction::ball_collide)
+        .add_system(ball_collide)
         .run();
 }
