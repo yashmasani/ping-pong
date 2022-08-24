@@ -54,14 +54,27 @@ fn player_two_move (mut keyboard_input: Res<Input<KeyCode>> , mut player_positio
     }
 }
 
-pub fn ball_collide (
+pub fn ball_collide_player_one (
         player_position: Query<&Transform, With<PlayerOne>>,
         mut dir_position: Query<(&Transform, &mut Direction), Without<PlayerOne>>,
     ) {
     if let Some(transform_player) = player_position.iter().next() {
         if let Some((trans_dir, mut dir)) = dir_position.iter_mut().next() {
-            if transform_player.translation.x == trans_dir.translation.x {
+            if trans_dir.translation.x <= (transform_player.translation.x + 15.0) && (transform_player.translation.y + 40.0) >= trans_dir.translation.y && (transform_player.translation.y - 40.0 <= trans_dir.translation.y){
                 dir.x = dir.x.abs();
+            }
+        }
+    }
+}
+
+pub fn ball_collide_player_two (
+        player_position: Query<&Transform, With<PlayerTwo>>,
+        mut dir_position: Query<(&Transform, &mut Direction), Without<PlayerTwo>>,
+    ) {
+    if let Some(transform_player) = player_position.iter().next() {
+        if let Some((trans_dir, mut dir)) = dir_position.iter_mut().next() {
+            if trans_dir.translation.x >= (transform_player.translation.x - 15.0) && trans_dir.translation.x <= (transform_player.translation.x + 15.0) && (transform_player.translation.y + 40.0) >= trans_dir.translation.y && (transform_player.translation.y - 40.0 <= trans_dir.translation.y){
+                dir.x *= -1.0;
             }
         }
     }
@@ -87,6 +100,7 @@ fn main() {
         .add_system(player_one::player_one_move)
         .add_system(player_two_move)
         .add_system(direction::ball_move)
-        .add_system(ball_collide)
+        .add_system(ball_collide_player_one)
+        .add_system(ball_collide_player_two)
         .run();
 }
