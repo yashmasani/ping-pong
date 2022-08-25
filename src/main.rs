@@ -13,7 +13,14 @@ pub struct HelloPlugin;
 const MAX : f32 = 250.0;
 
 #[derive(Component)]
-pub struct PlayerTwo; 
+pub struct PlayerTwo;
+
+
+#[derive(Component)]
+pub struct GameOverEvent {
+    player_one: bool,
+    player_two: bool,
+}
 
 fn setup (mut commands: Commands, mut meshes: ResMut<Assets<Mesh>>, mut materials: ResMut<Assets<ColorMaterial>>) {
     commands.spawn_bundle(Camera2dBundle::default());
@@ -80,6 +87,57 @@ pub fn ball_collide_player_two (
     }
 }
 
+pub fn ball_move (
+    mut ball_position: Query<(&mut Transform, &mut Direction)>,
+    mut game_over_writer: EventWriter<GameOverEvent>,
+) { 
+    for (mut transform, mut dir_position) in ball_position.iter_mut() {
+        if transform.translation.y.abs() > MAX {
+            dir_position.y *= -1.0;
+        }
+        transform.translation.x += dir_position.x;
+        transform.translation.y += dir_position.y;
+        if transform.translation.x > MAX {
+            game_over_writer.send(GameOverEvent { player_one: true, player_two: false });
+        } else if transform.translation.x < (MAX * -1.0) {
+            game_over_writer.send(GameOverEvent { player_one: false, player_two: true });
+        }
+    }
+}
+
+pub fn game_over (
+        mut commands: Commands,
+        asset_server: Res<AssetServer>,
+        mut reader: EventReader<GameOverEvent>,
+        query: Query<Entity, Without<Camera>>
+    ){
+        if let Some(r) = reader.iter().next() {
+            let x:Vec<_> =  query.iter().collect();
+            for ent in x { 
+                commands.entity(ent).remove::<PlayerOne>().remove_bundle::<SpriteBundle>();
+                commands.entity(ent).remove::<PlayerOne>().remove_bundle::<SpriteBundle>();
+                commands.entity(ent).remove::<Ball>().remove_bundle::<SpriteBundle>();
+            }
+            let font = asset_server.load("arial.ttf");
+            let text_style = TextStyle {
+                font, 
+                font_size: 60.0,
+                color: Color::WHITE,
+            };
+            let mut winner = "Player One".to_string();
+            if r.player_one {
+                println!("Winner playerOne");
+            } else {
+                winner = "Player Two".to_string();
+                println!("Winner playerTwo");
+            }
+            commands.spawn_bundle(Text2dBundle {
+                text: Text::from_section(winner, text_style),
+                ..default()
+            });
+        } 
+}
+
 impl Plugin for HelloPlugin {
     fn build(&self, app: &mut App) {
         println!("{}", "App is running");
@@ -99,8 +157,10 @@ fn main() {
         .add_plugin(HelloPlugin)
         .add_system(player_one::player_one_move)
         .add_system(player_two_move)
-        .add_system(direction::ball_move)
+        .add_system(ball_move)
         .add_system(ball_collide_player_one)
         .add_system(ball_collide_player_two)
+        .add_event::<GameOverEvent>()
+        .add_system(game_over)
         .run();
 }
