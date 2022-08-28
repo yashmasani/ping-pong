@@ -109,30 +109,63 @@ pub fn game_over (
         mut commands: Commands,
         asset_server: Res<AssetServer>,
         mut reader: EventReader<GameOverEvent>,
-        query: Query<Entity, Without<Camera>>
+        query: Query<Entity, Without<Camera>>,
+        mut meshes: ResMut<Assets<Mesh>>,
+        mut materials: ResMut<Assets<ColorMaterial>>
     ){
         if let Some(r) = reader.iter().next() {
             let x:Vec<_> =  query.iter().collect();
             for ent in x { 
                 commands.entity(ent).remove::<PlayerOne>().remove_bundle::<SpriteBundle>();
                 commands.entity(ent).remove::<PlayerOne>().remove_bundle::<SpriteBundle>();
-                commands.entity(ent).remove::<Ball>().remove_bundle::<SpriteBundle>();
+                commands.entity(ent).remove::<Ball>().remove_bundle::<MaterialMesh2dBundle<ColorMaterial>>();
             }
             let font = asset_server.load("arial.ttf");
             let text_style = TextStyle {
                 font, 
-                font_size: 60.0,
+                font_size: 40.0,
                 color: Color::WHITE,
             };
-            let mut winner = "Player One".to_string();
+            let mut winner = "Winner Player One".to_string();
             if r.player_one {
                 println!("Winner playerOne");
             } else {
-                winner = "Player Two".to_string();
+                winner = "Winner Player Two".to_string();
                 println!("Winner playerTwo");
             }
             commands.spawn_bundle(Text2dBundle {
                 text: Text::from_section(winner, text_style),
+                transform: Transform::from_xyz(-150.0, 30.0, 1.0),
+                ..default()
+            });
+            commands.spawn_bundle( MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(20.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::BLACK)),
+                transform: Transform::from_xyz(0.0, -30.0, 1.0),
+                ..default()
+            });
+            commands.spawn_bundle( MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(5.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_xyz(-10.0, -23.0, 2.0),
+                ..default()
+            });
+            commands.spawn_bundle( MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(5.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_xyz(10.0, -23.0, 2.0),
+                ..default()
+            });
+            commands.spawn_bundle( MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Circle::new(10.).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::WHITE)),
+                transform: Transform::from_xyz(0.0, -40.0, 2.0),
+                ..default()
+            });
+            commands.spawn_bundle( MaterialMesh2dBundle {
+                mesh: meshes.add(shape::Box::new(30.0, 10.0, 0.0).into()).into(),
+                material: materials.add(ColorMaterial::from(Color::BLACK)),
+                transform: Transform::from_xyz(0.0, -35.0, 3.0),
                 ..default()
             });
         } 
